@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>LeroLero diario de bordo</title>
+    </head>
+    <body>
+        <div class="cabecalho">
+        </div>
+        
+        <div id="select">
+            <input type="checkbox" name="proj" value="Sensor de pressao" id="proj1" onclick="pegaValorCheckBox()">    <label for="proj1">Sensor de pressão</label><br>
+            <input type="checkbox" name="proj" value="PIC32" id="proj2" onclick="pegaValorCheckBox()">                <label for="proj2">PIC32</label><br>
+            <input type="checkbox" name="proj" value="BUG smart touch" id="proj3" onclick="pegaValorCheckBox()">      <label for="proj3">BUG smart touch</label><br>
+            <input type="checkbox" name="proj" value="Auxilio na producao" id="proj4" onclick="pegaValorCheckBox()">    <label for="proj4">Auxílio na produção</label><br>
+            <input type="checkbox" name="proj" value="Recorte de telas para o PIC32" id="proj5" onclick="pegaValorCheckBox()">    <label id="teste" for="proj4">Recorte de telas para o PIC32</label><br>
+        </div>
+        <div>
+            <input type="text" id="novoProjeto">
+            <button id="btCriar">Cria projeto</button>
+        </div>
+        <div>
+            <p>Selecione a data de inicio do preenchimento:</p>
+            Dia:<select id="dia">
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                    <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
+                    <option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29
+                    </option><option>30</option><option>31</option>
+                </select>
+            Mês:<select id="mes">
+                    <option value="0">Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option>
+                    <option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outrubro</option><option>Novembro</option><option>Dezembro</option>
+                </select>
+            <!-- Ano:<select>
+                    <option>2019</option><option>2020
+                </select> -->
+        </div><br>
+        <button id="btGerar">Gerar arquivo</button>
+        <span ></span>
+
+    </body>
+    <!-- <script>require('diarioDe')</script> -->
+    <script src="diarioDeBordo.js"></script>
+    <script src="classe.js"></script>
+</html>
