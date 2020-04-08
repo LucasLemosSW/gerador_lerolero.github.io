@@ -11,45 +11,30 @@ var select = document.getElementById("select");
 
 var listaAtividades=[];
 var listaProjetos = [];
-var listaDescricao= ['merda','cu','bunda'];
 
-var bandoDeDescricoes={
-  sensor: ['Bob', 'Smith'],
-  PIC32: ['Bob', 'Smith'],
-  touch: ['Bob', 'Smith'],
-  Auxilio: ['Bob', 'Smith'],
-  recorte: ['música', 'esquiar'],
-}
+var dataAtual;
+var mesAtual;
+var diaAtual;
+var horaAtual;
+var dia=0;
+var dias=0;
 
+var dataDeInicio;
+var diaDeInicio;
+var mesDeInicio;
 
+var hoje;
 
-function pegaValorCheckBox()
-{
-	var pacote = document.querySelectorAll('[name=proj]:checked');
-	var novoProjeto = document.querySelectorAll('novoProjeto');
-	var mesSelecionado = document.getElementById("mes").selectedIndex;
-
-	while(listaProjetos.length) 
-		    listaProjetos.shift();
-        
-	for (let i = 0; i < pacote.length; i++) // loop de projeto
-	{
-		for(let j=0; j<=(Math.random()*(5-1)+1); j++)	// loop de Descrições
-		{
-			let descricaoAtual=preencheDescricao(pacote[i].value);
-			for(let a=0; a<=(Math.random()*(3-1)+1); a++)	// loop de Descrições
-			{
-				listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,0,0));		
-			}
-			
-		}
-	}
-	console.log(listaProjetos);
+var bancoDeDescricoes={
+  sensor: ['Reavaliar sensor hall', 'Testes funcionais da nova versao','Adaptar codigo para nova sensibilidade','atualizar o FW da precison V1 para o novo sensor','Desenvolver funcao para deteccao de equipo'],
+  PIC32: ['Portar codigo do FG','Pesquisar sobre Bateria de Litio', 'Desenvolver Middleware do sistema de Energia','Migrar codigo de alarmes','implementar baixo nivel do DFPlayer','Merge entre versoes de software'],
+  touch: ['Bug da perda de dados','otimizar loop principal do sensoriamento','Resolucao da lista de bugs'],
+  Auxilio: ['Montar modulos', 'Montar monitores','Montar sensores de pressao'],
+  recorte: ['Recortar novas telas do PIC32', 'Desenhar telas pro Medidor','Prototipar Telas de leitos'],
 }
 
 criaProjeto.addEventListener('click' , function()
 {
-
 	var x = document.createElement("INPUT");
 	x.setAttribute("type", "checkbox")
 
@@ -79,6 +64,7 @@ gerarCSV.addEventListener('click' , function()
         csv += ','+ row.descricao;
         csv += ','+ row.data;
         csv += ','+ row.inicio;
+        csv += ','+ row.fim;
         csv += '\n';
     });
   
@@ -89,26 +75,3 @@ gerarCSV.addEventListener('click' , function()
     hiddenElement.click();
 
 });
-
-function preencheDescricao(projetoAtual)
-{
-	switch (projetoAtual)
-	{
-		case 'Sensor de pressao':
-			console.log(projetoAtual);
-			return listaDescricao[(parseInt(Math.random()*(3-1)+1))];
-		break;			
-		case 'PIC32':
-			return listaDescricao[(parseInt(Math.random()*(3-1)+1))];
-		break;
-		case 'BUG smart touch':
-			return listaDescricao[(parseInt(Math.random()*(3-1)+1))];
-		break;
-		case 'Auxilio na producao':
-			return listaDescricao[(parseInt(Math.random()*(3-1)+1))];
-		break;
-		case 'Recorte de telas para o PIC32':
-			return listaDescricao[(parseInt(Math.random()*(3-1)+1))];
-		break;
-	}
-}

@@ -2,6 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="diarioDeBordo.css">
         <title>LeroLero diario de bordo</title>
     </head>
     <body>
@@ -9,13 +10,12 @@
         </div>
         
         <div id="select">
-            <input type="checkbox" name="proj" value="Sensor de pressao" id="proj1" onclick="pegaValorCheckBox()">    <label for="proj1">Sensor de pressão</label><br>
-            <input type="checkbox" name="proj" value="PIC32" id="proj2" onclick="pegaValorCheckBox()">                <label for="proj2">PIC32</label><br>
-            <input type="checkbox" name="proj" value="BUG smart touch" id="proj3" onclick="pegaValorCheckBox()">      <label for="proj3">BUG smart touch</label><br>
+            <input type="checkbox" name="proj" value="Sensor de Pressao" id="proj1" onclick="pegaValorCheckBox()">    <label for="proj1">Sensor de pressão</label><br>
+            <input type="checkbox" name="proj" value="Smart Touch V2" id="proj2" onclick="pegaValorCheckBox()">                <label for="proj2">PIC32</label><br>
+            <input type="checkbox" name="proj" value="Smart Touch 24" id="proj3" onclick="pegaValorCheckBox()">      <label for="proj3">BUG smart touch</label><br>
             <input type="checkbox" name="proj" value="Auxilio na producao" id="proj4" onclick="pegaValorCheckBox()">    <label for="proj4">Auxílio na produção</label><br>
-            <input type="checkbox" name="proj" value="Recorte de telas para o PIC32" id="proj5" onclick="pegaValorCheckBox()">    <label id="teste" for="proj4">Recorte de telas para o PIC32</label><br>
         </div>
-        <div>
+        <div id=divNewProject>
             <input type="text" id="novoProjeto">
             <button id="btCriar">Cria projeto</button>
         </div>
@@ -42,4 +42,5 @@
     <!-- <script>require('diarioDe')</script> -->
     <script src="diarioDeBordo.js"></script>
     <script src="classe.js"></script>
+    <script src="functions.js"></script>
 </html>

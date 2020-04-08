@@ -1,12 +1,13 @@
 class Atividade
 {
 
-	constructor(projeto,descricao,data,inicio){
+	constructor(projeto,descricao,data,inicio,fim){
 
 		this.projeto=projeto;
 		this.descricao=descricao;
-		this.data = new Date();;
+		this.data = data;
 		this.inicio=inicio;
+		this.fim=fim;
 	}
 
 	obtemProjeto(){
