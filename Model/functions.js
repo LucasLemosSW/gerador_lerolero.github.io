@@ -66,6 +66,8 @@ function pegaValorCheckBox()
 				for(let a=0; a<=(Math.random()*(3-1)+1); a++)	// loop de hora
 				{
 					let horafinal=horaAtual+parseInt(Math.random()*(5-3)+3);
+					if (horafinal>18)
+						horafinal=18;
 					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,horaAtual+':00:00',horafinal+':00:00'));		
 					horaAtual=horafinal;
 				}
