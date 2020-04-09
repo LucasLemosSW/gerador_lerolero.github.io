@@ -1,26 +1,9 @@
-
-var vetorProjetosSelecionados=[];
-var gerarCSV = document.getElementById("btGerar");
 var criaProjeto = document.getElementById("btCriar");
-var checkproj1 = document.getElementById("proj1");
-var checkproj2 = document.getElementById("proj2");
-var checkproj3 = document.getElementById("proj3");
-var checkproj4 = document.getElementById("proj4");
-var checkproj5 = document.getElementById("proj5");
-var select = document.getElementById("select"); 
 
 var pacote ;
 
-var dataAtual;
-var mesAtual;
-var diaAtual;
-var horaAtual;
 var dia=0;
 var dias=0;
-
-var dataDeInicio;
-var diaDeInicio;
-var mesDeInicio;
 
 var hoje;
 

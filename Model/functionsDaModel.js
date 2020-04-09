@@ -1,3 +1,10 @@
+//#######------------------ SELECÃO DA VIEW ------------------------#############//
+var gerarCSV = document.getElementById("btGerar");
+var select = document.getElementById("select"); 
+//#######------------------ SELECÃO DA VIEW ------------------------#############//
+
+
+
 function preencheDescricao(projetoAtual)
 {
 	// console.log(bancoDeDescricoes.sensor.length);
@@ -34,13 +41,10 @@ function incrementaData()
 
 function insereAtividades(pacote,diaDeInicio,mesDeInicio)
 {
-	// var pacote = document.querySelectorAll('[name=proj]:checked');
-	// var novoProjeto = document.querySelectorAll('novoProjeto');
-
 	let listaProjetos=[]
+	let dataAtual,horaAtual,diaAtual,mesAtual;
 
-	// mesDeInicio = document.getElementById("mes").selectedIndex;
-	// diaDeInicio = document.getElementById("dia").selectedIndex;
+    let dataDeInicio;
 
 	dataDeInicio=dataDeInicio
 	hoje=(mesDeInicio+1)+"/"+(diaDeInicio+1)+"/2020";
@@ -53,7 +57,6 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio)
 	while(listaProjetos.length) 
 	{
 		    listaProjetos.pop();
-		    // console.log(listaProjetos);
 	}	
         
 	for (let i = 0; i < pacote.length; i++) // loop de projeto
@@ -76,6 +79,7 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio)
 			}
 		}
 	}
-	return listaProjetos;
 	// console.log(listaProjetos);
+	return listaProjetos;
+	
 }

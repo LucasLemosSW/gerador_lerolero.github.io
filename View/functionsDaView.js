@@ -11,6 +11,8 @@ gerarCSV.addEventListener('click' , function()
 {
 	let csv = 'Projeto, Atividade, Data, Inicio, Fim, Duracao\n';
 	let listaProjetos = [];
+   	let diaDeInicio;
+   	let mesDeInicio;
 
 	mesDeInicio = document.getElementById("mes").selectedIndex;
 	diaDeInicio = document.getElementById("dia").selectedIndex;
