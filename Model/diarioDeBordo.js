@@ -9,8 +9,7 @@ var checkproj4 = document.getElementById("proj4");
 var checkproj5 = document.getElementById("proj5");
 var select = document.getElementById("select"); 
 
-var listaAtividades=[];
-var listaProjetos = [];
+var pacote ;
 
 var dataAtual;
 var mesAtual;
@@ -30,7 +29,7 @@ var bancoDeDescricoes={
   PIC32: ['Portar codigo do FG','Pesquisar sobre Bateria de Litio', 'Desenvolver Middleware do sistema de Energia','Migrar codigo de alarmes','implementar baixo nivel do DFPlayer','Merge entre versoes de software'],
   touch: ['Bug da perda de dados','otimizar loop principal do sensoriamento','Resolucao da lista de bugs'],
   Auxilio: ['Montar modulos', 'Montar monitores','Montar sensores de pressao'],
-  recorte: ['Recortar novas telas do PIC32', 'Desenhar telas pro Medidor','Prototipar Telas de leitos'],
+  recorte: ['Recortar novas telas do PIC32', 'Desenhar telas pro Medidor','Prototipar Telas de leitos']
 }
 
 criaProjeto.addEventListener('click' , function()
@@ -52,26 +51,4 @@ criaProjeto.addEventListener('click' , function()
 	select.appendChild(novoEspaco);
 
 	novoLabel.innerText = novoProjeto.value;
-});
-
-gerarCSV.addEventListener('click' , function()
-{
-	var csv = 'Projeto, Atividade, Data, Inicio, Fim, Duracao\n';
- 
-    listaProjetos.forEach(function(row) 
-    {
-        csv += row.projeto;
-        csv += ','+ row.descricao;
-        csv += ','+ row.data;
-        csv += ','+ row.inicio;
-        csv += ','+ row.fim;
-        csv += '\n';
-    });
-  
-    var hiddenElement = document.createElement('a');
-    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-    hiddenElement.target = '_blank';
-    hiddenElement.download = 'Diario de LeroLero.csv';
-    hiddenElement.click();
-
 });

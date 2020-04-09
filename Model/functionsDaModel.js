@@ -32,13 +32,15 @@ function incrementaData()
 	return(dataVenc.getDate() + "/" + (dataVenc.getMonth() + 1) + "/" + dataVenc.getFullYear());
 }
 
-function pegaValorCheckBox()
+function insereAtividades(pacote,diaDeInicio,mesDeInicio)
 {
-	var pacote = document.querySelectorAll('[name=proj]:checked');
-	var novoProjeto = document.querySelectorAll('novoProjeto');
-	
-	mesDeInicio = document.getElementById("mes").selectedIndex;
-	diaDeInicio = document.getElementById("dia").selectedIndex;
+	// var pacote = document.querySelectorAll('[name=proj]:checked');
+	// var novoProjeto = document.querySelectorAll('novoProjeto');
+
+	let listaProjetos=[]
+
+	// mesDeInicio = document.getElementById("mes").selectedIndex;
+	// diaDeInicio = document.getElementById("dia").selectedIndex;
 
 	dataDeInicio=dataDeInicio
 	hoje=(mesDeInicio+1)+"/"+(diaDeInicio+1)+"/2020";
@@ -74,5 +76,6 @@ function pegaValorCheckBox()
 			}
 		}
 	}
-	console.log(listaProjetos);
+	return listaProjetos;
+	// console.log(listaProjetos);
 }
