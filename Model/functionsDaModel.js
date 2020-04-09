@@ -42,7 +42,7 @@ function incrementaData()
 function insereAtividades(pacote,diaDeInicio,mesDeInicio)
 {
 	let listaProjetos=[]
-	let dataAtual,horaAtual,diaAtual,mesAtual;
+	let dataAtual,horaAtual,horafinal,diaAtual,mesAtual;
 
     let dataDeInicio;
 
@@ -68,10 +68,13 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio)
 			{
 				dataAtual=incrementaData();
 				horaAtual=8;
-				for(let a=0; a<=(Math.random()*(3-1)+1); a++)	// loop de hora
+				let loopDeHoraNoDia=parseInt(Math.random()*(3-1)+1)
+				for(let a=0; a<=loopDeHoraNoDia; a++)	// loop de hora
 				{
-					let horafinal=horaAtual+parseInt(Math.random()*(5-3)+3);
-					if (horafinal>18)
+					horafinal=horaAtual+parseInt(Math.random()*(4-2)+2);
+					console.log(loopDeHoraNoDia);
+					console.log(a);
+					if (horafinal>18 || (loopDeHoraNoDia)==a)
 						horafinal=18;
 					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,horaAtual+':00:00',horafinal+':00:00'));		
 					horaAtual=horafinal;

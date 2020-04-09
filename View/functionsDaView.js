@@ -1,9 +1,9 @@
-var pacote ;
 
-function pegaValorCheckBox()
+
+function pegaValorCheckBox(pacote)
 {
 	pacote = document.querySelectorAll('[name=proj]:checked');
-	// novoProjeto = document.querySelectorAll('novoProjeto');
+	return pacote;
 }
 
 
@@ -11,13 +11,13 @@ gerarCSV.addEventListener('click' , function()
 {
 	let csv = 'Projeto, Atividade, Data, Inicio, Fim, Duracao\n';
 	let listaProjetos = [];
-   	let diaDeInicio;
-   	let mesDeInicio;
+   	let diaDeInicio,mesDeInicio;
+   	let pacote ;
 
 	mesDeInicio = document.getElementById("mes").selectedIndex;
 	diaDeInicio = document.getElementById("dia").selectedIndex;
 
-	listaProjetos=insereAtividades(pacote,diaDeInicio,mesDeInicio)
+	listaProjetos=insereAtividades(pegaValorCheckBox(pacote),diaDeInicio,mesDeInicio)
  
     listaProjetos.forEach(function(row) 
     {

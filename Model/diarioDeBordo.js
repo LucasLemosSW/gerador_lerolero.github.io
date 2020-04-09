@@ -1,7 +1,5 @@
+
 var criaProjeto = document.getElementById("btCriar");
-
-var pacote ;
-
 var dia=0;
 var dias=0;
 
