@@ -30,11 +30,14 @@
                 <p>Selecione a data de inicio e fim para o preenchimento:</p>
                 <div class="entradaDeData">
                     <label for="startDate">Inicio:<input type="date" id="startDate" name="trip-start" value="2019-01-01" min="2019-01-01" max="2021-12-31"></label>
-                </div>       
-                <label for="disableInputs"><input type="checkbox" name="disableInputs" onclick="desabilitaSelects()" id="checkDesabilita">Desabilitar data final</label>
+                </div> 
+                <label for="noveHoras"><input type="radio" id="noveHoras" name="horario" checked>9:00/dia</label>
+                <label for="seisHoras"><input type="radio" id="seisHoras" name="horario">6:00/dia</label>
+                <label for="fexivel"><input type="checkbox" id="fexivel" name="horarioFlexivel">Horario flexível</label>      
+                <!-- <label for="disableInputs"><input type="checkbox" name="disableInputs" onclick="desabilitaSelects()" id="checkDesabilita">Desabilitar data final</label>
                 <div class="entradaDeData">
                     <label for="endDate">Fim:<input type="date" id="endDate" name="trip-start" value="2019-07-22" min="2018-01-01" max="2021-12-31"></label>
-                </div>
+                </div> -->
             </div>
             <button id="btGerar">Gerar arquivo</button>    
         </div>    

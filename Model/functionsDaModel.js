@@ -1,6 +1,8 @@
 //#######------------------ SELECÃO DA VIEW ------------------------#############//
 var gerarCSV = document.getElementById("btGerar");
 var novoProjeto = document.getElementById("novoProjeto");
+var noveHoras = document.getElementById("noveHoras");
+var seisHoras = document.getElementById("seisHoras");
 
 //#######------------------ SELECÃO DA VIEW ------------------------#############//
 
@@ -79,10 +81,24 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 				for(let a=0; a<=loopDeHoraNoDia; a++)	// loop de hora
 				{
 					horafinal=horaAtual+parseInt(Math.random()*(4-2)+2);
-					if (horafinal>18 || (loopDeHoraNoDia)==a)
-						horafinal=18;
+					
+					if(noveHoras.checked)
+					{
+						if (horafinal>18 || (loopDeHoraNoDia)==a)
+							horafinal=18;
+					}
+					else
+					{
+						if (horafinal>14 || (loopDeHoraNoDia)==a)
+							horafinal=14;
+					}
+
 					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,horaAtual+':00:00',horafinal+':00:00'));		
 					horaAtual=horafinal;
+					if(noveHoras.checked && horaAtual>=18)
+						break;
+					if(seisHoras.checked && horaAtual>=14)
+						break;
 				}
 			}
 		}
