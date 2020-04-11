@@ -3,6 +3,9 @@
 var criaProjeto = document.getElementById("btCriar");
 var salvarProjeto = document.getElementById("btSalvar");
 var criaDescricao = document.getElementById("btAddDescricao");
+var btCriarProjeto = document.getElementById("btCriar");
+var campoDescricao = document.getElementById("campoDescricoes");
+let select = document.getElementById("novoProjeto");
 var adicionaInput=3;
 //#######------------------ SELECÃO DA VIEW ------------------------#############//
 
@@ -14,6 +17,41 @@ var bancoDeDescricoes={
   recorte: ['Recortar novas telas do PIC32', 'Desenhar telas pro Medidor','Prototipar Telas de leitos']
 }
 
+  	var projetoEstrutura={
+  		nome:"",
+  		Descricao:[],
+  	}
+
+  	let vetorProjeto=[];
+
+  	var projetoEstrutura1= Object.create(projetoEstrutura);
+	projetoEstrutura1.nome="Sensor de Pressao";
+	projetoEstrutura1.Descricao=['Reavaliar sensor hall', 'Testes funcionais da nova versao','Adaptar codigo para nova sensibilidade','atualizar o FW da precison V1 para o novo sensor','Desenvolver funcao para deteccao de equipo'];
+	vetorProjeto.push(projetoEstrutura1);
+
+	var projetoEstrutura2= Object.create(projetoEstrutura);
+	projetoEstrutura2.nome="Smart Touch V2";
+	projetoEstrutura2.Descricao=['Portar codigo do FG','Pesquisar sobre Bateria de Litio', 'Desenvolver Middleware do sistema de Energia','Migrar codigo de alarmes','implementar baixo nivel do DFPlayer','Merge entre versoes de software'];
+	vetorProjeto.push(projetoEstrutura2);
+
+	var projetoEstrutura3= Object.create(projetoEstrutura);
+	projetoEstrutura3.nome="Smart Touch 24";
+	projetoEstrutura3.Descricao=['Bug da perda de dados','otimizar loop principal do sensoriamento','Resolucao da lista de bugs'];
+	vetorProjeto.push(projetoEstrutura3);
+
+	var projetoEstrutura4= Object.create(projetoEstrutura);
+	projetoEstrutura4.nome="Auxilio na producao";
+	projetoEstrutura4.Descricao=['Montar modulos', 'Montar monitores','Montar sensores de pressao'];
+	vetorProjeto.push(projetoEstrutura4);
+
+	var projetoEstrutura5= Object.create(projetoEstrutura);
+	projetoEstrutura5.nome="recorte";
+	projetoEstrutura5.Descricao=['Recortar novas telas do PIC32', 'Desenhar telas pro Medidor','Prototipar Telas de leitos'];
+	vetorProjeto.push(projetoEstrutura5);
+
+	// console.log(vetorProjeto);
+
+
 /*-------------------------------------------------------------
 Nome:
 Descrição:
@@ -22,9 +60,6 @@ Saida:
 -------------------------------------------------------------*/
 criaProjeto.addEventListener('click' , function()
 {
-  	var campoDescricao = document.getElementById("campoDescricoes");
-  	var btCriarProjeto = document.getElementById("btCriar");
-
   	if(novoProjeto.value=="")
   	{
   		alert("Preencha o campo para continuar");
@@ -33,7 +68,8 @@ criaProjeto.addEventListener('click' , function()
 
   	if(campoDescricao.style.display=="flex")
   	{
-  		btCriarProjeto.innerHTML="Cria Projeto";
+  		select.value="";
+  		btCriarProjeto.innerHTML="Criar Projeto";
 		campoDescricao.style.display="none";
   	}
 	else 
@@ -72,10 +108,8 @@ Saida:
 -------------------------------------------------------------*/
 salvarProjeto.addEventListener('click' , function()
 {
-	let select = document.getElementById("teste123");
-	let x = document.createElement("INPUT");
-	let novoCheck = document.createElement("INPUT");
-	let novoLabel = document.createElement("label");
+	let projetoEstruturaNova= Object.create(projetoEstrutura);
+	let vetorCampoDescricoes=[];
 
 	var elems = document.querySelectorAll('input.dercriProjeto');
 	var camposPreenchidos=0;
@@ -84,7 +118,7 @@ salvarProjeto.addEventListener('click' , function()
 		if(obj.value!="")
 		{
 			camposPreenchidos++
-	  		vetorDescrições.push(obj.value);
+	  		vetorCampoDescricoes.push(obj.value);
 		}
 	});
 
@@ -94,17 +128,27 @@ salvarProjeto.addEventListener('click' , function()
 		return;
 	}
 
-	console.log(vetorDescrições);
+	projetoEstruturaNova.nome=novoProjeto.value;
+	projetoEstruturaNova.Descricao=vetorCampoDescricoes;
+	vetorProjeto.push(projetoEstruturaNova);
+	
+	// console.log(vetorCampoDescricoes);
+	// novoCheck.setAttribute("type", "checkbox");
 
-	x.setAttribute("type", "checkbox")
+  	let html = "<label for="+novoProjeto.value+"><input type="+"checkbox"+" name="+"proj"+" value="+novoProjeto.value+" id="+novoProjeto.value+" >"+novoProjeto.value+"</label>";
+  	select.insertAdjacentHTML('beforebegin', html);
 
-	novoCheck.setAttribute("type", "checkbox");
-	novoCheck.setAttribute("value", novoProjeto.value);
-	novoCheck.setAttribute("id", novoProjeto.value);
-	novoLabel.setAttribute("for", novoProjeto.value);
+  	campoDescricao.style.display="none";
+  	btCriarProjeto.innerHTML="Criar Projeto";
 
-  	let html = "<label for="+novoProjeto.value+"><input type="+"checkbox"+" name="+novoProjeto.value+" value="+novoProjeto.value+" id="+novoProjeto.value+" >"+novoProjeto.value+"</label>";
-  	select.insertAdjacentHTML('afterbegin', html);
-  	// console.log(bancoDeDescricoes);
+  	var values = [].map.call(elems, function(obj) {
+		if(obj.value!="")
+		{
+			obj.value="";
+		}
+	});
+  	select.value="";
+  	alert("Projeto incluído com sucesso");
+
 
 });

@@ -16,24 +16,11 @@ Saida:
 -------------------------------------------------------------*/
 function preencheDescricao(projetoAtual)
 {
-	// console.log(bancoDeDescricoes.sensor.length);
-	switch (projetoAtual)
+	for(let i=0;i<vetorProjeto.length;i++)
 	{
-		case 'Sensor de Pressao':
-			return bancoDeDescricoes.sensor[(parseInt(Math.random()*(bancoDeDescricoes.sensor.length-1)+1))];
-		break;			
-		case 'Smart Touch V2':
-			return bancoDeDescricoes.PIC32[(parseInt(Math.random()*(bancoDeDescricoes.PIC32.length-1)+1))];
-		break;
-		case 'Smart Touch 24':
-			return bancoDeDescricoes.touch[(parseInt(Math.random()*(bancoDeDescricoes.touch.length-1)+1))];
-		break;
-		case 'Auxilio na producao':
-			return bancoDeDescricoes.Auxilio[(parseInt(Math.random()*(bancoDeDescricoes.Auxilio.length-1)+1))];
-		break;
-		case 'Recorte de telas para o PIC32':
-			return bancoDeDescricoes.recorte[(parseInt(Math.random()*(bancoDeDescricoes.recorte.length-1)+1))];
-		break;
+		if(vetorProjeto[i].nome==projetoAtual)
+			return vetorProjeto[i].Descricao[(parseInt(Math.random()*(vetorProjeto[i].Descricao.length)))];
+		// return vetorProjeto[i].Descricao[(parseInt(Math.random()*(vetorProjeto[i].Descricao.length-1)+1))];
 	}
 }
 
