@@ -1,13 +1,19 @@
 //#######------------------ SELECÃO DA VIEW ------------------------#############//
 var gerarCSV = document.getElementById("btGerar");
-var select = document.getElementById("select"); 
+var novoProjeto = document.getElementById("novoProjeto");
+
 //#######------------------ SELECÃO DA VIEW ------------------------#############//
 
 var dia=0;
 var dias=0;
 var hoje;
 
-
+/*-------------------------------------------------------------
+Nome:
+Descrição:
+Entrada(s):
+Saida:
+-------------------------------------------------------------*/
 function preencheDescricao(projetoAtual)
 {
 	// console.log(bancoDeDescricoes.sensor.length);
@@ -31,6 +37,12 @@ function preencheDescricao(projetoAtual)
 	}
 }
 
+/*-------------------------------------------------------------
+Nome:
+Descrição:
+Entrada(s):
+Saida:
+-------------------------------------------------------------*/
 function incrementaData()
 {
 	var dataVenc    = new Date(hoje.getTime() + (dias * 24 * 60 * 60 * 1000));
@@ -42,6 +54,12 @@ function incrementaData()
 	return(dataVenc.getDate() + "/" + (dataVenc.getMonth() + 1) + "/" + dataVenc.getFullYear());
 }
 
+/*-------------------------------------------------------------
+Nome:
+Descrição:
+Entrada(s):
+Saida:
+-------------------------------------------------------------*/
 function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 {
 	let listaProjetos=[]
@@ -49,12 +67,12 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
     let dataDeInicio;
 
 	dataDeInicio=dataDeInicio
-	hoje=(mesDeInicio+1)+"/"+(diaDeInicio+1)+"/"+(anoDeInicio+2018);
+	hoje=(mesDeInicio)+"/"+(diaDeInicio)+"/"+(anoDeInicio);
 	hoje = new Date(hoje);
 	dias=0;
 
-	diaAtual=diaDeInicio+1;
-	mesAtual=mesDeInicio+1;
+	diaAtual=diaDeInicio;
+	mesAtual=mesDeInicio;
 
 	while(listaProjetos.length) 
 	{

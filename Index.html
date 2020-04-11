@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="projetosDescricoes">
-            <div class="campoProjetos">
+            <div class="campoProjetos" id="teste123">
                 <label for="proj1"><input type="checkbox" name="proj" value="Sensor de Pressao" id="proj1" >Sensor de pressão</label>
                 <label for="proj2"><input type="checkbox" name="proj" value="Smart Touch V2" id="proj2" >PIC32</label>
                 <label for="proj3"><input type="checkbox" name="proj" value="Smart Touch 24" id="proj3">BUG smart touch</label>
@@ -15,47 +15,24 @@
                 <input type="text" id="novoProjeto">
                 <button id="btCriar">Cria projeto</button>
             </div>
-            <div class="campoDescricoes">
-                <p>Cite três descrições para o projeto:</p>
-                <input type="text" name="descri" id="descri1" placeholder="blá blá blá">
-                <input type="text" name="descri" id="descri2" placeholder="blá blá blá">
-                <input type="text" name="descri" id="descri3" placeholder="blá blá blá">
+            <div class="campoDescricoes" id="campoDescricoes">
+                <p>Adicione descrições para o projeto:</p>
+                <input type="text" class ="dercriProjeto" name="descri" id="descri1" placeholder="blá-blá-blá">
+                <input type="text" class ="dercriProjeto" name="descri" id="descri2" placeholder="blá-blá-blá">
+                <input type="text" class ="dercriProjeto" name="descri" id="descri3" placeholder="blá-blá-blá">
                 <button id="btAddDescricao">+</button>
-                <button id="btCriar">Salvar</button>
+                <button id="btSalvar">Salvar</button>
             </div>
         </div>
         <div class="blocoFinal">
             <div class="datasInicialFinal">
-                <p>Selecione a data de inicio do preenchimento:</p>
+                <p>Selecione a data de inicio e fim para o preenchimento:</p>
                 <div class="entradaDeData">
-                    Dia:<select id="dia">
-                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29
-                            </option><option>30</option><option>31</option>
-                        </select>
-                    Mês:<select id="mes">
-                            <option value="0">Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option>
-                            <option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outrubro</option><option>Novembro</option><option>Dezembro</option>
-                        </select>
-                    Ano:<select id="ano">
-                            <option>2018</option><option>2019</option><option>2020</option><option>2021</option>
-                        </select>
-                </div>
-                
+                    <label for="startDate">Inicio:<input type="date" id="startDate" name="trip-start" value="2019-01-01" min="2019-01-01" max="2021-12-31"></label>
+                </div>       
                 <label for="disableInputs"><input type="checkbox" name="disableInputs" onclick="desabilitaSelects()" id="checkDesabilita">Desabilitar data final</label>
-                <p>Selecione a data de fim do preenchimento:</p>
                 <div class="entradaDeData">
-                    
-                    Dia:<select id="diaFinal"  >
-                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29
-                            </option><option>30</option><option>31</option>
-                        </select>
-                    Mês:<select id="mesFinal" >
-                            <option value="0">Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option>
-                            <option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outrubro</option><option>Novembro</option><option>Dezembro</option>
-                        </select>
-                    Ano:<select id="anoFinal" >
-                            <option>2018</option><option>2019</option><option>2020</option><option>2021</option>
-                        </select>
+                    <label for="endDate">Fim:<input type="date" id="endDate" name="trip-start" value="2019-07-22" min="2018-01-01" max="2021-12-31"></label>
                 </div>
             </div>
             <button id="btGerar">Gerar arquivo</button>    

@@ -55,17 +55,18 @@ table {
 	border: groove;
 	margin: 1%;
 	padding: 2% 1%;
-	width: 25%;
+	/*width: 25%;*/
 }
 
 .campoDescricoes{
-	display: flex;
+	/*display: flex;*/
+	display: none;
 	flex-flow: column wrap;
 	background-color: gray;
 	border: groove;
 	margin: 1%;
 	padding: 2% 1%;
-	width: 25%;
+	/*width: 25%;*/
 }
 
 .projetosDescricoes{
@@ -82,7 +83,7 @@ table {
 	border: groove;
 	margin: 1%;
 	padding: 2% 1%;
-	width: 25%;
+	/*width: 25%;*/
 
 }
 
