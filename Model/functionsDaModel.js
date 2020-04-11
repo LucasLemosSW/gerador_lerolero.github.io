@@ -52,7 +52,7 @@ Saida:
 function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 {
 	let listaProjetos=[]
-	let dataAtual,horaAtual,horafinal,diaAtual,mesAtual;
+	let dataAtual,horaAtual,horafinal,diaAtual,mesAtual,minutosFinal='00';
     let dataDeInicio;
 
 	dataDeInicio=dataDeInicio
@@ -81,19 +81,23 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 				for(let a=0; a<=loopDeHoraNoDia; a++)	// loop de hora
 				{
 					horafinal=horaAtual+parseInt(Math.random()*(4-2)+2);
-					
+
 					if(noveHoras.checked)
 					{
-						if (horafinal>18 || (loopDeHoraNoDia)==a)
+						if (horafinal>=18 || (loopDeHoraNoDia)==a)
 							horafinal=18;
 					}
 					else
 					{
-						if (horafinal>14 || (loopDeHoraNoDia)==a)
+						if (horafinal>=14 || (loopDeHoraNoDia)==a)
+						{
+							minutosFinal=30;
 							horafinal=14;
+						}
 					}
 
-					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,horaAtual+':00:00',horafinal+':00:00'));		
+					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,horaAtual+':00:00',horafinal+':'+minutosFinal+':00'));
+					minutosFinal='00';
 					horaAtual=horafinal;
 					if(noveHoras.checked && horaAtual>=18)
 						break;
