@@ -3,6 +3,9 @@ var gerarCSV = document.getElementById("btGerar");
 var select = document.getElementById("select"); 
 //#######------------------ SELECÃO DA VIEW ------------------------#############//
 
+var dia=0;
+var dias=0;
+var hoje;
 
 
 function preencheDescricao(projetoAtual)
@@ -39,15 +42,14 @@ function incrementaData()
 	return(dataVenc.getDate() + "/" + (dataVenc.getMonth() + 1) + "/" + dataVenc.getFullYear());
 }
 
-function insereAtividades(pacote,diaDeInicio,mesDeInicio)
+function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 {
 	let listaProjetos=[]
 	let dataAtual,horaAtual,horafinal,diaAtual,mesAtual;
-
     let dataDeInicio;
 
 	dataDeInicio=dataDeInicio
-	hoje=(mesDeInicio+1)+"/"+(diaDeInicio+1)+"/2020";
+	hoje=(mesDeInicio+1)+"/"+(diaDeInicio+1)+"/"+(anoDeInicio+2018);
 	hoje = new Date(hoje);
 	dias=0;
 
@@ -72,8 +74,6 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio)
 				for(let a=0; a<=loopDeHoraNoDia; a++)	// loop de hora
 				{
 					horafinal=horaAtual+parseInt(Math.random()*(4-2)+2);
-					console.log(loopDeHoraNoDia);
-					console.log(a);
 					if (horafinal>18 || (loopDeHoraNoDia)==a)
 						horafinal=18;
 					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,horaAtual+':00:00',horafinal+':00:00'));		

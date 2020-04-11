@@ -6,36 +6,60 @@
         <title>LeroLero diario de bordo</title>
     </head>
     <body>
-        <div class="cabecalho">
+        <div class="projetosDescricoes">
+            <div class="campoProjetos">
+                <label for="proj1"><input type="checkbox" name="proj" value="Sensor de Pressao" id="proj1" >Sensor de pressão</label>
+                <label for="proj2"><input type="checkbox" name="proj" value="Smart Touch V2" id="proj2" >PIC32</label>
+                <label for="proj3"><input type="checkbox" name="proj" value="Smart Touch 24" id="proj3">BUG smart touch</label>
+                <label for="proj4"><input type="checkbox" name="proj" value="Auxilio na producao" id="proj4">Auxílio na produção</label>
+                <input type="text" id="novoProjeto">
+                <button id="btCriar">Cria projeto</button>
+            </div>
+            <div class="campoDescricoes">
+                <p>Cite três descrições para o projeto:</p>
+                <input type="text" name="descri" id="descri1" placeholder="blá blá blá">
+                <input type="text" name="descri" id="descri2" placeholder="blá blá blá">
+                <input type="text" name="descri" id="descri3" placeholder="blá blá blá">
+                <button id="btAddDescricao">+</button>
+                <button id="btCriar">Salvar</button>
+            </div>
         </div>
-        
-        <div id="select">
-            <input type="checkbox" name="proj" value="Sensor de Pressao" id="proj1" >    <label for="proj1">Sensor de pressão</label><br>
-            <input type="checkbox" name="proj" value="Smart Touch V2" id="proj2" >                <label for="proj2">PIC32</label><br>
-            <input type="checkbox" name="proj" value="Smart Touch 24" id="proj3" >      <label for="proj3">BUG smart touch</label><br>
-            <input type="checkbox" name="proj" value="Auxilio na producao" id="proj4">    <label for="proj4">Auxílio na produção</label><br>
-        </div>
-        <div id=divNewProject>
-            <input type="text" id="novoProjeto">
-            <button id="btCriar">Cria projeto</button>
-        </div>
-        <div>
-            <p>Selecione a data de inicio do preenchimento:</p>
-            Dia:<select id="dia">
-                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29
-                    </option><option>30</option><option>31</option>
-                </select>
-            Mês:<select id="mes">
-                    <option value="0">Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option>
-                    <option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outrubro</option><option>Novembro</option><option>Dezembro</option>
-                </select>
-            <!-- Ano:<select>
-                    <option>2019</option><option>2020
-                </select> -->
-        </div><br>
-        <button id="btGerar">Gerar arquivo</button>
-        <span ></span>
-
+        <div class="blocoFinal">
+            <div class="datasInicialFinal">
+                <p>Selecione a data de inicio do preenchimento:</p>
+                <div class="entradaDeData">
+                    Dia:<select id="dia">
+                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29
+                            </option><option>30</option><option>31</option>
+                        </select>
+                    Mês:<select id="mes">
+                            <option value="0">Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option>
+                            <option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outrubro</option><option>Novembro</option><option>Dezembro</option>
+                        </select>
+                    Ano:<select id="ano">
+                            <option>2018</option><option>2019</option><option>2020</option><option>2021</option>
+                        </select>
+                </div>
+                
+                <label for="disableInputs"><input type="checkbox" name="disableInputs" onclick="desabilitaSelects()" id="checkDesabilita">Desabilitar data final</label>
+                <p>Selecione a data de fim do preenchimento:</p>
+                <div class="entradaDeData">
+                    
+                    Dia:<select id="diaFinal"  >
+                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29
+                            </option><option>30</option><option>31</option>
+                        </select>
+                    Mês:<select id="mesFinal" >
+                            <option value="0">Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option>
+                            <option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outrubro</option><option>Novembro</option><option>Dezembro</option>
+                        </select>
+                    Ano:<select id="anoFinal" >
+                            <option>2018</option><option>2019</option><option>2020</option><option>2021</option>
+                        </select>
+                </div>
+            </div>
+            <button id="btGerar">Gerar arquivo</button>    
+        </div>    
     </body>
     <script src="./Model/diarioDeBordo.js"></script>
     <script src="./Model/AtividadeModel.js"></script>

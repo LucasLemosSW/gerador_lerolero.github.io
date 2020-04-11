@@ -1,9 +1,5 @@
 
 var criaProjeto = document.getElementById("btCriar");
-var dia=0;
-var dias=0;
-
-var hoje;
 
 var bancoDeDescricoes={
   sensor: ['Reavaliar sensor hall', 'Testes funcionais da nova versao','Adaptar codigo para nova sensibilidade','atualizar o FW da precison V1 para o novo sensor','Desenvolver funcao para deteccao de equipo'],
