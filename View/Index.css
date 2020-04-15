@@ -79,10 +79,23 @@ input {
 	/*width: 25%;*/
 }
 
+
 .projetosDescricoes{
 	display: flex;
 	justify-content: center;
 	background-image: linear-gradient(white, #808996);
+}
+
+@media screen and (max-width: 400px) {
+
+	.projetosDescricoes{
+		display: flex;
+		flex-direction: column;
+	}
+	.blocoFinal{
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .datasInicialFinal{
