@@ -31,6 +31,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	/*font-family: 'Roboto Slab', serif;*/
+	color: #edf2ee;
+	font-size: 18px;
 }
 ol, ul {
 	list-style: none;
@@ -48,11 +51,16 @@ table {
 	border-spacing: 0;
 }
 
+input {
+	border-radius: 5px;
+}
+
 .campoProjetos{
 	display: flex;
 	flex-flow: column wrap;
-	background-color: gray;
+	background-color: #808996;
 	border: groove;
+	border-radius: 10px;
 	margin: 1%;
 	padding: 2% 1%;
 	/*width: 25%;*/
@@ -62,8 +70,9 @@ table {
 	/*display: flex;*/
 	display: none;
 	flex-flow: column wrap;
-	background-color: gray;
+	background-color: #808996;
 	border: groove;
+	border-radius: 10px;
 	margin: 1%;
 	padding: 2% 1%;
 	/*width: 25%;*/
@@ -79,8 +88,9 @@ table {
 	display: flex;
 	align-self: center;
 	flex-flow: column wrap;
-	background-color: gray;
+	background-color: #808996;
 	border: groove;
+	border-radius: 10px;
 	margin: 1%;
 	padding: 2% 1%;
 	/*width: 25%;*/
