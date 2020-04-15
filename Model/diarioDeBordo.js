@@ -88,7 +88,7 @@ Saida:
 criaDescricao.addEventListener('click' , function()
 {
 	adicionaInput++;
-	if(adicionaInput>=6)
+	if(adicionaInput>=10)
 	{
 		alert("Não é possível adicionar mais descrições");
 		return;

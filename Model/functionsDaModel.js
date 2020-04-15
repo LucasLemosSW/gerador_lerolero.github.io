@@ -3,6 +3,8 @@ var gerarCSV = document.getElementById("btGerar");
 var novoProjeto = document.getElementById("novoProjeto");
 var noveHoras = document.getElementById("noveHoras");
 var seisHoras = document.getElementById("seisHoras");
+var seisHorasEstagio = document.getElementById("seisHorasEstagio");
+var flex = document.getElementById("fexivel");
 
 //#######------------------ SELECÃO DA VIEW ------------------------#############//
 
@@ -52,7 +54,7 @@ Saida:
 function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 {
 	let listaProjetos=[]
-	let dataAtual,horaAtual,horafinal,diaAtual,mesAtual,minutosFinal='00';
+	let dataAtual,horaAtual,horafinal,minutoFinal,diaAtual,mesAtual,horarioAlmoco=false,Jornada,vetorHora;
     let dataDeInicio;
 
 	dataDeInicio=dataDeInicio
@@ -76,38 +78,66 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 			for(dia=1;dia<=(Math.random()*(10-5)+5);dia++)	// loop de Data
 			{
 				dataAtual=incrementaData();
-				horaAtual=8;
-				let loopDeHoraNoDia=parseInt(Math.random()*(3-1)+1)
-				for(let a=0; a<=loopDeHoraNoDia; a++)	// loop de hora
+				let loopDeHoraNoDia=parseInt(Math.random()*(3-1)+1);
+				vetorHora=SetaValoresIniciaisDeHoras();
+				horarioAlmoco=false;
+				
+				for(let somadasNoDia=0; somadasNoDia<vetorHora[2];)	// loop de hora
 				{
-					horafinal=horaAtual+parseInt(Math.random()*(4-2)+2);
+					let descriçãoDodiaia=descricaoAtual;
+					horafinal=vetorHora[0]+parseInt(Math.random()*(4-3)+3);
+					minutoFinal=parseInt(Math.random()*(9-1));
 
-					if(noveHoras.checked)
+				
+					if(!horarioAlmoco && vetorHora[0]>=11)
 					{
-						if (horafinal>=18 || (loopDeHoraNoDia)==a)
-							horafinal=18;
-					}
-					else
-					{
-						if (horafinal>=14 || (loopDeHoraNoDia)==a)
-						{
-							minutosFinal=30;
-							horafinal=14;
-						}
+						horafinal=vetorHora[0]+1;
+						minutoFinal=parseInt(Math.random()*(9-1));;
+						horarioAlmoco=true;
+						descricaoAtual="Almoco";
 					}
 
-					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,horaAtual+':00:00',horafinal+':'+minutosFinal+':00'));
-					minutosFinal='00';
-					horaAtual=horafinal;
-					if(noveHoras.checked && horaAtual>=18)
-						break;
-					if(seisHoras.checked && horaAtual>=14)
-						break;
+					somadasNoDia=somadasNoDia+(horafinal-vetorHora[0])*60+(minutoFinal-vetorHora[1]);
+
+					// console.log(`hora Iniciar: ${vetorHora[0]}:${vetorHora[1]}`)
+					// console.log(`hora final: ${horafinal}`)
+					// console.log(`Somadas no dia: ${somadasNoDia}`);
+					// console.log(vetorHora[2]);
+
+					listaProjetos.push(new Atividade(pacote[i].value,descricaoAtual,dataAtual,`${vetorHora[0]}:0${vetorHora[1]}:00`,`${horafinal}:0${minutoFinal}:00`));
+					descricaoAtual=descriçãoDodiaia;
+					vetorHora[0]=horafinal;
+					vetorHora[1]=minutoFinal;
+
 				}
 			}
 		}
 	}
 	// console.log(listaProjetos);
 	return listaProjetos;
-	
+}
+
+function SetaValoresIniciaisDeHoras(){
+	let vetorTempo=[]; // [horas,minutos,jornada]
+	console.log(flex.checked);
+	if(flex.checked)
+	{
+		vetorTempo[0]=parseInt(Math.random()*(8-6)+6);
+		vetorTempo[1]=parseInt(Math.random()*(9));
+	}
+	else
+	{
+		vetorTempo[0]=8;
+		vetorTempo[1]=parseInt(Math.random()*(9));
+	}
+
+	if(noveHoras.checked)
+		vetorTempo[2]=540;
+	if(seisHoras.checked)
+		vetorTempo[2]=360;
+	// if(seisHorasEstagio.checked)
+	// 	vetorTempo[2]=360;
+
+	return vetorTempo;
+
 }
