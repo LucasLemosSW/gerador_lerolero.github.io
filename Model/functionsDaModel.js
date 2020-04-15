@@ -72,10 +72,10 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
         
 	for (let i = 0; i < pacote.length; i++) // loop de projeto
 	{
-		for(let j=0; j<=(Math.random()*(15-1)+1); j++)	// loop de Descrições
+		for(let j=0; j<=(Math.random()*(15-10)+10); j++)	// loop de Descrições
 		{
 			let descricaoAtual=preencheDescricao(pacote[i].value);
-			for(dia=1;dia<=(Math.random()*(10-5)+5);dia++)	// loop de Data
+			for(dia=1;dia<=(Math.random()*(15-5)+5);dia++)	// loop de Data
 			{
 				dataAtual=incrementaData();
 				let loopDeHoraNoDia=parseInt(Math.random()*(3-1)+1);
@@ -108,7 +108,6 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 					descricaoAtual=descriçãoDodiaia;
 					vetorHora[0]=horafinal;
 					vetorHora[1]=minutoFinal;
-
 				}
 			}
 		}
@@ -119,10 +118,10 @@ function insereAtividades(pacote,diaDeInicio,mesDeInicio,anoDeInicio)
 
 function SetaValoresIniciaisDeHoras(){
 	let vetorTempo=[]; // [horas,minutos,jornada]
-	console.log(flex.checked);
+	// console.log(flex.checked);
 	if(flex.checked)
 	{
-		vetorTempo[0]=parseInt(Math.random()*(8-6)+6);
+		vetorTempo[0]=parseInt(Math.random()*(9-6)+6);
 		vetorTempo[1]=parseInt(Math.random()*(9));
 	}
 	else

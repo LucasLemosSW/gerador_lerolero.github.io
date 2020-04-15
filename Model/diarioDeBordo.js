@@ -110,10 +110,10 @@ salvarProjeto.addEventListener('click' , function()
 {
 	let projetoEstruturaNova= Object.create(projetoEstrutura);
 	let vetorCampoDescricoes=[];
-
 	var elems = document.querySelectorAll('input.dercriProjeto');
 	var camposPreenchidos=0;
 	var vetorDescrições=[];
+
 	var values = [].map.call(elems, function(obj) {
 		if(obj.value!="")
 		{
@@ -131,11 +131,8 @@ salvarProjeto.addEventListener('click' , function()
 	projetoEstruturaNova.nome=novoProjeto.value;
 	projetoEstruturaNova.Descricao=vetorCampoDescricoes;
 	vetorProjeto.push(projetoEstruturaNova);
-	
-	// console.log(vetorCampoDescricoes);
-	// novoCheck.setAttribute("type", "checkbox");
 
-  	let html = "<label for="+novoProjeto.value+"><input type="+"checkbox"+" name="+"proj"+" value="+novoProjeto.value+" id="+novoProjeto.value+" >"+novoProjeto.value+"</label>";
+  	let html = `<label for="${novoProjeto.value}"><input type="checkbox" name="${"proj"}" value="${novoProjeto.value}" id="${novoProjeto.value}">${novoProjeto.value} </label>`;
   	select.insertAdjacentHTML('beforebegin', html);
 
   	campoDescricao.style.display="none";
@@ -149,6 +146,5 @@ salvarProjeto.addEventListener('click' , function()
 	});
   	select.value="";
   	alert("Projeto incluído com sucesso");
-
 
 });

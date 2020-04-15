@@ -40,7 +40,7 @@ gerarCSV.addEventListener('click' , function()
    	var dataDeInicio = document.getElementById("startDate");
    	dataDeInicio = (dataDeInicio.value).split("-");
 
-	listaProjetos=insereAtividades(pegaValorCheckBox(pacote),dataDeInicio[2],dataDeInicio[1],dataDeInicio[0])
+	listaProjetos=insereAtividades(pegaValorCheckBox(pacote),dataDeInicio[2],dataDeInicio[1],dataDeInicio[0]);
  
     listaProjetos.forEach(function(row) 
     {
