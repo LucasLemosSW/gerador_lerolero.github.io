@@ -76,6 +76,7 @@ criaProjeto.addEventListener('click' , function()
 	{
 		btCriarProjeto.innerHTML="Cancela";
 		campoDescricao.style.display="flex"
+		document.getElementById("descri1").focus();
 	}
 });
 
