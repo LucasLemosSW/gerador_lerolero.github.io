@@ -88,7 +88,7 @@ Saida:
 criaDescricao.addEventListener('click' , function()
 {
 	adicionaInput++;
-	if(adicionaInput>=10)
+	if(adicionaInput>10)
 	{
 		alert("Não é possível adicionar mais descrições");
 		return;
@@ -96,7 +96,7 @@ criaDescricao.addEventListener('click' , function()
 
 	let descriInput="descri"+adicionaInput;
 	let addDercricao = document.getElementById("btAddDescricao");
-	let html_2 = "<input type="+"text"+" name="+"descri"+" id="+descriInput+" placeholder="+"blá-blá-blá"+">";
+	let html_2 = `<input type="text" name="descri" class="dercriProjeto" id="${descriInput}" placeholder="blá-blá-blá">`;
   	addDercricao.insertAdjacentHTML('beforebegin', html_2);
 });
 
@@ -131,6 +131,7 @@ salvarProjeto.addEventListener('click' , function()
 	projetoEstruturaNova.nome=novoProjeto.value;
 	projetoEstruturaNova.Descricao=vetorCampoDescricoes;
 	vetorProjeto.push(projetoEstruturaNova);
+	console.log(projetoEstruturaNova);
 
   	let html = `<label for="${novoProjeto.value}"><input type="checkbox" name="${"proj"}" value="${novoProjeto.value}" id="${novoProjeto.value}">${novoProjeto.value} </label>`;
   	select.insertAdjacentHTML('beforebegin', html);
