@@ -62,7 +62,7 @@ criaProjeto.addEventListener('click' , function()
 {
   	if(novoProjeto.value=="")
   	{
-  		alert("Preencha o campo para continuar");
+  		alert("Insira o nome do projeto para continuar");
   		return;
   	}
 
